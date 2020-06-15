@@ -68,7 +68,7 @@ function render(config) {
     svg: svg,
     config,
     treeData,
-    x: 70,
+    x: 80,
     y: -24,
   })
 
@@ -146,15 +146,15 @@ function render(config) {
   // Person's Reports
   nodeEnter
     .append('text')
-    .attr('class', PERSON_REPORTS_CLASS)
-    .attr('x', nodePaddingX + 8)
+    .attr('class', PERSON_REPORTS_CLASS + ' unedited')
+    .attr('x', nodeWidth / 2)
     .attr('y', namePos.y + nodePaddingY + heightForTitle)
     .attr('dy', '.9em')
     .style('font-size', 14)
     .style('font-weight', 400)
     .style('cursor', 'pointer')
     .style('fill', reportsColor)
-    .text(helpers.getTextForTitle)
+    .text(d => d.person.reports)
 
   // Person's Avatar
   nodeEnter
@@ -224,9 +224,10 @@ function render(config) {
   const link = svg.selectAll('path.link').data(links, d => d.target.id)
 
   // Wrap the title texts
-  const wrapWidth = 124
+  const wrapWidth = 144
   svg.selectAll('text.unedited.' + PERSON_NAME_CLASS).call(wrapText, wrapWidth)
   svg.selectAll('text.unedited.' + PERSON_TITLE_CLASS).call(wrapText, wrapWidth)
+  svg.selectAll('text.unedited.' + PERSON_REPORTS_CLASS).call(wrapText, wrapWidth)
 
   // Render lines connecting nodes
   renderLines(config)
@@ -237,9 +238,9 @@ function render(config) {
     d.y0 = d.y
   })
 
-  var nodeLeftX = -70
-  var nodeRightX = 70
-  var nodeY = 200
+  var nodeLeftX = -80
+  var nodeRightX = 80
+  var nodeY = 240
   nodes.map(d => {
     nodeLeftX = d.x < nodeLeftX ? d.x : nodeLeftX
     nodeRightX = d.x > nodeRightX ? d.x : nodeRightX
