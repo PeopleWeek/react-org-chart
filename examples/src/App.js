@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import OrgChart from '@unicef/react-org-chart'
+import OrgChart from '@peopleweek/react-org-chart'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { tree, tree1, tree2, tree3, tree4 } from './Tree'
 import avatarPersonnel from './assets/avatar-personnel.svg'
@@ -115,7 +115,7 @@ export default class App extends React.Component {
               </button>
               <a
                 className="github-link"
-                href="https://github.com/unicef/react-org-chart"
+                href="https://github.com/PeopleWeek/react-org-chart"
               >
                 Github
               </a>
