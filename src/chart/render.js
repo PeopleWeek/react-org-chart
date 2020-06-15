@@ -2,7 +2,6 @@ const d3 = require('d3')
 const { wrapText, helpers, covertImageToBase64 } = require('../utils')
 const renderLines = require('./renderLines')
 const exportOrgChartImage = require('./exportOrgChartImage')
-const exportOrgChartPdf = require('./exportOrgChartPdf')
 const onClick = require('./onClick')
 const iconLink = require('./components/iconLink')
 const supervisorIcon = require('./components/supervisorIcon')
@@ -36,7 +35,6 @@ function render(config) {
     onPersonLinkClick,
     loadImage,
     downloadImageId,
-    downloadPdfId,
     elemWidth,
     margin,
     onConfigChange,
@@ -255,9 +253,6 @@ function render(config) {
     exportOrgChartImage(config)
   })
 
-  d3.select(downloadPdfId).on('click', function() {
-    exportOrgChartPdf(config)
-  })
   onConfigChange(config)
 }
 module.exports = render

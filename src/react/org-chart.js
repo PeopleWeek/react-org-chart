@@ -13,7 +13,6 @@ class OrgChart extends PureComponent {
   static defaultProps = {
     id: 'react-org-chart',
     downloadImageId: 'download-image',
-    downloadPdfId: 'download-pdf',
     zoomInId: 'zoom-in',
     zoomOutId: 'zoom-out',
     zoomExtentId: 'zoom-extent',
@@ -23,7 +22,6 @@ class OrgChart extends PureComponent {
     const {
       id,
       downloadImageId,
-      downloadPdfId,
       zoomInId,
       zoomOutId,
       zoomExtentId,
@@ -34,7 +32,6 @@ class OrgChart extends PureComponent {
     init({
       id: `#${id}`,
       downloadImageId: `#${downloadImageId}`,
-      downloadPdfId: `#${downloadPdfId}`,
       zoomInId: zoomInId,
       zoomOutId: zoomOutId,
       zoomExtentId: zoomExtentId,

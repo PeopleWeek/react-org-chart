@@ -84,9 +84,8 @@ export default class App extends React.Component {
   render() {
     const { tree, downloadingChart } = this.state
 
-    //For downloading org chart as image or pdf based on id
+    //For downloading org chart as image based on id
     const downloadImageId = 'download-image'
-    const downloadPdfId = 'download-pdf'
 
     return (
       <BrowserRouter basename="/react-org-chart">
@@ -110,9 +109,6 @@ export default class App extends React.Component {
               <button className="btn btn-outline-primary" id="download-image">
                 Download as image
               </button>
-              <button className="btn btn-outline-primary" id="download-pdf">
-                Download as PDF
-              </button>
               <a
                 className="github-link"
                 href="https://github.com/PeopleWeek/react-org-chart"
@@ -124,7 +120,6 @@ export default class App extends React.Component {
             <OrgChart
               tree={tree}
               downloadImageId={downloadImageId}
-              downloadPdfId={downloadPdfId}
               onConfigChange={config => {
                 this.handleOnChangeConfig(config)
               }}
